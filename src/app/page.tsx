@@ -21,7 +21,7 @@ export default async function Home() {
       
       <Header/>
       <Banner/>
-      <div className='max-w-7xl mx-auto h-60 relative'>
+      <div className='max-w-7xl mx-auto h-60 relative'> 
       <BannerBottom/>
       </div>
       <div className='max-w-7xl mx-auto py-20 px-4'>Post will go here</div>
