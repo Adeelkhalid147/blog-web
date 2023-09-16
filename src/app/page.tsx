@@ -13,7 +13,7 @@ import { IProduct } from "@/components/shared/types";
 
 
 
-export async function getProductData() {
+async function getProductData() {
   let query = await client.fetch(
     `*[_type == "post"]{_id,title,author -> {name,image},description,mainImage,slug}`,
     {

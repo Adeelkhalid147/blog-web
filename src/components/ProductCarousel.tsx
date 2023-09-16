@@ -2,8 +2,27 @@ import Image from "next/image";
 import React from "react";
 import { urlForImage } from "../../sanity/lib/image";
 import { IProduct } from "./shared/types";
-import { getProductData } from "@/app/page";
+// import { getProductData } from "@/app/page";
 import Link from "next/link";
+import { client } from "../../sanity/lib/client";
+
+async function getProductData() {
+  let query = await client.fetch(
+    `*[_type == "post"]{_id,title,author -> {name,image},description,mainImage,slug}`,
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
+
+  return query;
+}
+
+
+
+
+
 
 const ProductCarousel = async () => {
   let data: IProduct[] = await getProductData();
