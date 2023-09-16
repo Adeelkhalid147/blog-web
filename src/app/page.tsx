@@ -28,21 +28,21 @@ export default async function Home() {
       <Footer/>
     </div>
   )
-  
+
 }
 
 
 
 
-export const getServerSideProps = async () => {
-  const query = `*[_type == "post"]{
-    _id,title,author -> {
-      name,image
-    },
-      description,
-      mainImage,
-      slug
-  }`
-  const posts = await config.fetch(query)
-  return posts
-}
+// export const getServerSideProps = async () => {
+//   const query = `*[_type == "post"]{
+//     _id,title,author -> {
+//       name,image
+//     },
+//       description,
+//       mainImage,
+//       slug
+//   }`
+//   const posts = await config.fetch(query)
+//   return posts
+// }
