@@ -14,8 +14,8 @@ interface Props{
 }
 
 export default async function Home() {
-  const data = await getServerSideProps()
-  console.log("adeel khalid: ",data)
+  // const data = await getServerSideProps()
+  // console.log("adeel khalid: ",data)
   return (
     <div>
       
