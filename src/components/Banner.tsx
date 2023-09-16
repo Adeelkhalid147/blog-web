@@ -19,7 +19,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Banner = () => {
   const sliderRef = useRef<Slider | null>(null);
-  console.log(sliderRef.current)
+  // console.log(sliderRef.current)
 
   const nextSlide = ()=>{
     if (sliderRef.current) {

@@ -1,48 +1,47 @@
+import Image from "next/image";
+import { urlForImage } from "../../sanity/lib/image";
 
-import Image from 'next/image'
-import { config,urlFor } from '../lib/sanityClient'
-import { Post } from '../../typings'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import Banner from '@/components/Banner'
-import BannerBottom from '@/components/BannerBottom'
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
+import BannerBottom from "@/components/BannerBottom";
+import { client } from "../../sanity/lib/client";
+
+import ProductCarousel from "@/components/ProductCarousel";
+import { IProduct } from "@/components/shared/types";
 
 
 
-interface Props{
-  posts:[Post]
+
+export async function getProductData() {
+  let query = await client.fetch(
+    `*[_type == "post"]{_id,title,author -> {name,image},description,mainImage,slug}`,
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
+
+  return query;
 }
 
 export default async function Home() {
-  // const data = await getServerSideProps()
-  // console.log("adeel khalid: ",data)
+  let data: IProduct[] = await getProductData();
+  console.log("dataAA:", data);
+
   return (
     <div>
+      <Header />
+      {/* <Banner /> */}
+      {/* <div className="max-w-7xl mx-auto h-60 relative">
+        <BannerBottom />
+      </div> */}
+      <ProductCarousel />
       
-      <Header/>
-      <Banner/>
-      <div className='max-w-7xl mx-auto h-60 relative'> 
-      <BannerBottom/>
-      </div>
-      <div className='max-w-7xl mx-auto py-20 px-4'>Post will go here</div>
-      <Footer/>
+      {/* <Footer /> */}
     </div>
-  )
-
+  );
 }
 
-
-
-
-// export const getServerSideProps = async () => {
-//   const query = `*[_type == "post"]{
-//     _id,title,author -> {
-//       name,image
-//     },
-//       description,
-//       mainImage,
-//       slug
-//   }`
-//   const posts = await config.fetch(query)
-//   return posts
-// }
+//
