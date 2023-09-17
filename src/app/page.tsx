@@ -33,13 +33,13 @@ export default async function Home() {
   return (
     <div>
       <Header />
-      {/* <Banner /> */}
-      {/* <div className="max-w-7xl mx-auto h-60 relative">
+      <Banner />
+      <div className="max-w-7xl mx-auto h-60 relative">
         <BannerBottom />
-      </div> */}
+      </div>
       <ProductCarousel />
       
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
