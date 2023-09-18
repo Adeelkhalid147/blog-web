@@ -15,7 +15,7 @@ import { IProduct } from "@/components/shared/types";
 
 async function getProductData() {
   let query = await client.fetch(
-    `*[_type == "post"]{_id,title,author -> {name,image},description,mainImage,slug}`,
+    `*[_type == "post"]{_id,title,author -> {name,image},description,mainImage,slug,body}`,
     {
       next: {
         revalidate: 60,
@@ -28,7 +28,7 @@ async function getProductData() {
 
 export default async function Home() {
   let data: IProduct[] = await getProductData();
-  console.log("dataAA:", data);
+  // console.log("dataAA:", data);
 
   return (
     <div>

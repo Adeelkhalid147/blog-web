@@ -8,7 +8,7 @@ import { client } from "../../sanity/lib/client";
 
 async function getProductData() {
   let query = await client.fetch(
-    `*[_type == "post"]{_id,title,author -> {name,image},description,mainImage,slug}`,
+    `*[_type == "post"]{_id,title,author -> {name,image},description,mainImage,slug,body}`,
     {
       next: {
         revalidate: 60,
@@ -26,7 +26,7 @@ async function getProductData() {
 
 const ProductCarousel = async () => {
   let data: IProduct[] = await getProductData();
-  console.log("dataAA:", data);
+  // console.log("dataAA:", data);
   return (
     <div className="max-w-7xl mx-auto py-20 px-4 grid grid-cols-3">
       {data.map((post: any, index: number) => (
