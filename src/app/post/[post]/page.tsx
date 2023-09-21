@@ -4,6 +4,7 @@ import { IProduct } from "@/components/shared/types";
 import Image from "next/image";
 import { urlForImage } from "../../../../sanity/lib/image";
 import PortableText from "react-portable-text";
+import CommentBox from "@/components/CommentBox";
 
 async function getProductData() {
   let query = await client.fetch(
@@ -40,7 +41,7 @@ const Post = async ({ params }: { params: any }) => {
           className="w-full h-96 object-cover"
         />
         {/* Article */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto mb-10">
           <article className="w-full mx-auto p-5 bg-secondaryColor/10">
             <h1 className="font-titleFont font-medium text-[32px] text-primary border-b-[1px] border-b-cyan-800 mt-10 mb-3">
               {filterData.title}
@@ -96,6 +97,8 @@ const Post = async ({ params }: { params: any }) => {
               />
             </div>
           </article>
+          <hr className="max-w-lg my-5 mx-auto border[1px] bprder-secondaryColor"/>
+          <CommentBox/>
         </div>
       </div>
     </div>
