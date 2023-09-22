@@ -8,7 +8,7 @@ export interface IProduct {
   mainImage: IImage;
 }
 
-export type Input = {
+export type Inputs = {
   _id: string;
   name: string;
   email: string;

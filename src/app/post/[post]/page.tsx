@@ -20,7 +20,7 @@ async function getProductData() {
 }
 
 const Post = async ({ params }: { params: any }) => {
-  let data: any = await getProductData();
+  let data = await getProductData();
   // console.log("####data: ",data)
   const filterData = data.find(
     (post: any) =>
@@ -97,8 +97,8 @@ const Post = async ({ params }: { params: any }) => {
               />
             </div>
           </article>
-          <hr className="max-w-lg my-5 mx-auto border[1px] bprder-secondaryColor"/>
-          <CommentBox/>
+          <hr className="max-w-lg my-5 mx-auto border[1px] border-secondaryColor"/>
+          <CommentBox data={data}/>
         </div>
       </div>
     </div>
