@@ -182,7 +182,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useId } from "react";
 import { Inputs } from "./shared/types";
 
-const CommentBox = (props: { _id: string }) => {
+const CommentBox = (props:any) => {
   console.log("props data : ", props);
   const {
     register,
